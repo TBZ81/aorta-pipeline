@@ -9,6 +9,7 @@ Ingegnere biomedico (biomeccanica e biomateriali), principiante con Python, VS C
 ## Ambienti (Miniforge, `~/miniforge3`)
 - `cardio` (`environment.yml`): FEniCSx (dolfinx), gmsh, OpenMPI, PyVista, meshio. Per FEM, CFD, mesh.
 - `cardio-ai` (`environment-ai.yml`): PyTorch (conda-forge, con GPU Apple MPS), TotalSegmentator. Per imaging e AI.
+- `cardio-vmtk` (x86_64, gira in Rosetta; non ha ancora un file `.yml`): Python 3.11 e VMTK 1.5.0 da conda-forge. Solo per la linea centrale e la preparazione della geometria (Fase 4).
 - Verifica: `python scripts/check_env_cardio.py` (anche con `mpirun -n 4`) e `python scripts/check_env_ai.py`.
 
 ## Vincoli hardware e software (MacBook Pro M1 Pro, 16 GB RAM, nessuna CUDA)
@@ -17,7 +18,7 @@ Ingegnere biomedico (biomeccanica e biomateriali), principiante con Python, VS C
 - AI: modelli preaddestrati o piccoli; niente addestramento 3D da zero.
 - Usare OpenMPI, non MPICH: MPICH su questo Mac passa dalle interfacce VPN ed è lentissimo.
 - Installare PyTorch da conda-forge, non da pip: la versione pip carica una seconda copia di OpenMP e va in crash.
-- Rosetta non installato: niente binari x86_64 (VMTK su conda esiste solo x86_64 su macOS).
+- Rosetta è installato, ma i binari x86_64 vanno limitati a ciò che non esiste per arm64: VMTK (su conda per macOS c'è solo x86_64) e 3D Slicer.
 
 ## Scelte di strumenti
 Solo open source, consolidati e stato dell'arte. Preferire pacchetti nativi arm64.
