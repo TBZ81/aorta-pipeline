@@ -1,0 +1,25 @@
+# Dati di imaging e risultati pesanti: non vanno su GitHub (si scaricano con gli script)
+data/raw/
+data/processed/
+results/**/*.xdmf
+results/**/*.h5
+results/**/*.bp/
+results/**/*.vtu
+results/**/*.pvd
+*.nii
+*.nii.gz
+*.nrrd
+*.dcm
+*.msh
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Sistema / editor
+.DS_Store
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json

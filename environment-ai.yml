@@ -1,0 +1,28 @@
+# Ambiente conda per imaging e AI (PyTorch, TotalSegmentator).
+# Separato da "cardio" perché i pacchetti pip di TotalSegmentator
+# vanno in conflitto con VTK installato da conda.
+# PyTorch viene da conda-forge (non da pip): la wheel pip include una sua copia
+# di OpenMP che va in conflitto con quella di conda e fa crashare Python.
+# Creazione:   mamba env create -f environment-ai.yml
+# Attivazione: conda activate cardio-ai
+name: cardio-ai
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pytorch
+  - torchvision
+  - simpleitk
+  - nibabel
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - tqdm
+  - jupyterlab
+  - ipykernel
+  - pytest
+  - pip
+  - pip:
+      - TotalSegmentator

@@ -1,0 +1,4 @@
+{
+  "python.defaultInterpreterPath": "~/miniforge3/envs/cardio/bin/python",
+  "files.exclude": { "**/__pycache__": true, "**/.pytest_cache": true }
+}

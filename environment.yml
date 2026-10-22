@@ -1,0 +1,30 @@
+# Ambiente conda per FEM, CFD e mesh (la parte AI è in environment-ai.yml).
+# Creazione:   mamba env create -f environment.yml
+# Attivazione: conda activate cardio
+name: cardio
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  # FEM e CFD
+  - fenics-dolfinx
+  - openmpi
+  - gmsh
+  - python-gmsh
+  # mesh e visualizzazione
+  - meshio
+  - pyvista
+  # imaging
+  - simpleitk
+  - nibabel
+  # calcolo, dati, grafici
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - tqdm
+  # strumenti di sviluppo
+  - jupyterlab
+  - ipykernel
+  - pytest
