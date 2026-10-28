@@ -1,0 +1,10 @@
+[project]
+name = "aorta"
+version = "0.1.0"
+description = "Pipeline open source per la biomeccanica dell'aorta: imaging, AI, CFD e FEM"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+# permette ai test di fare `import aorta` senza installare il pacchetto
+pythonpath = ["src"]
+testpaths = ["tests"]
