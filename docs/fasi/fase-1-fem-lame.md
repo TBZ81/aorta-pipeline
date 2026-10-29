@@ -2,7 +2,7 @@
 
 **Obiettivo:** verificare il solutore FEM (FEniCSx) su un problema con soluzione esatta: un cilindro a parete spessa sotto pressione interna, cioè un tratto di aorta idealizzato.
 **Risultato misurabile:** errore FEM rispetto a Lamé sotto l'1% e curva di convergenza con l'ordine teorico (circa 3 per elementi quadratici).
-**Stato:** 🔄 in corso: esercizio 3 fatto, ora commit e poi esercizio 4.
+**Stato:** 🔄 in corso: esercizi 1-3 fatti e su GitHub (commit 653436e), ora **esercizio 4a** (guardare la mesh).
 
 Valori usati (aorta toracica): raggio interno 12,5 mm, parete 2 mm, pressione 16 kPa (circa 120 mmHg), E = 1 MPa, ν = 0,45.
 
@@ -16,8 +16,11 @@ Valori usati (aorta toracica): raggio interno 12,5 mm, parete 2 mm, pressione 16
 
   Verifica: `pytest tests/test_fem_lame.py -v` dà **3 passed** (fatto il 29/10). Ricorda di attivare prima `conda activate cardio`: in `(base)` pytest non c'è.
   Comandi UFL usati: `ufl.grad`, `ufl.sym`, `ufl.tr`, `ufl.Identity`, `ufl.inner`, `ufl.dx`.
-- [ ] **Commit e Sync** 🧑: messaggio suggerito `Fase 1: solutore FEM per il cilindro di Lamé`. Includi anche `.gitignore`, `environment.yml`, `CLAUDE.md` e `docs/` modificati.
-- [ ] **4 · Visualizzare** 🤖 + 🧑: salvare i risultati in XDMF e aprirli in ParaView (anello deformato, mappa di σθ).
+- [x] **Commit e Sync** 🧑: messaggio suggerito `Fase 1: solutore FEM per il cilindro di Lamé`. Includi anche `.gitignore`, `environment.yml`, `CLAUDE.md` e `docs/` modificati.
+- [ ] **4 · Visualizzare** 🤖 + 🧑, a piccoli passi:
+  - [ ] 4a: guardare la mesh, `python scripts/fase1_a_mesh.py` → `results/fase1/mesh.png` (430 triangoli, 955 nodi);
+  - [ ] 4b: tabella FEM contro Lamé lungo lo spessore (mm, kPa, errore %);
+  - [ ] 4c: salvare i risultati in XDMF e aprirli in ParaView (anello deformato, mappa di σθ).
 - [ ] **5 · Notebook della fase** 🧑 guidato: `notebooks/fase1_lame.ipynb` con mesh 3D interattiva, confronto FEM e Lamé lungo lo spessore, curva di convergenza.
 - [ ] **6 · Grafico di convergenza nel README** 🤖 + 🧑: script in `scripts/` che salva la figura in `results/fase1/`.
 - [ ] **7 · Materiale iperelastico** (neo-Hooke): lo stesso cilindro, non lineare. Prepara la Fase 6.
