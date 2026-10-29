@@ -14,6 +14,10 @@ dependencies:
   # mesh e visualizzazione
   - meshio
   - pyvista
+  - trame  # grafici 3D interattivi di PyVista dentro i notebook
+  - trame-vtk
+  - trame-vuetify
+  - ipywidgets
   # imaging
   - simpleitk
   - nibabel

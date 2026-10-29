@@ -23,3 +23,9 @@ __pycache__/
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+
+# Trascrizione delle chat con Claude Code (contiene dati personali: resta solo in locale)
+chat/
+
+# Impostazioni personali di Claude Code
+.claude/settings.local.json

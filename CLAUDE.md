@@ -22,12 +22,21 @@ Ingegnere biomedico (biomeccanica e biomateriali), principiante con Python, VS C
 
 ## Scelte di strumenti
 Solo open source, consolidati e stato dell'arte. Preferire pacchetti nativi arm64.
+- CAD: FreeCAD 1.1.4 (arm64, `/Applications/FreeCAD.app`). Per gli script senza interfaccia: `Contents/Resources/bin/freecadcmd`. Include CalculiX (`ccx`), utile come secondo solutore FEM.
+- Visualizzazione: ParaView 6.2.0 per i risultati (arm64, `/Applications/ParaView-6.2.0.app`; per gli script `Contents/bin/pvbatch` e `pvpython`, gli XDMF si leggono con `Xdmf3ReaderS`), PyVista e notebook in VS Code per gli esercizi, gmsh per le mesh.
+- Imaging: 3D Slicer 5.12.4 (`/Applications/Slicer.app`). Esiste solo per x86_64, quindi gira in Rosetta.
+
+## Passaggi tra gli strumenti (verificati il 2026-10-28)
+- FreeCAD → STEP (in mm) → gmsh con `gmsh.option.setString("Geometry.OCCTargetUnit", "M")` per convertire in metri → dolfinx.
+- NIfTI (la maschera di `cardio-ai`, in mm) → `cardio-vmtk` (marching cubes, linea centrale) → superficie `.vtp` o `.stl` in mm: convertire in metri prima di fare la mesh.
+- Risultati di dolfinx: `XDMFFile` per ParaView. Per PyVista usare `dolfinx.plot.vtk_mesh` oppure `VTKFile` (.pvd), perché `pyvista.read` non legge gli XDMF che contengono solo la mesh.
 
 ## Convenzioni
 - Unità SI nel codice (m, Pa, s, kg/m³); conversioni (mmHg, cm) solo in input e output.
 - Codice riutilizzabile in `src/`, test in `tests/`, script eseguibili in `scripts/`, esplorazione in `notebooks/`.
 - I dati in `data/` e i risultati pesanti non vanno nel repo: ogni dataset deve avere uno script di download e la licenza citata nel README.
 - Ogni solutore va verificato con una soluzione analitica prima di usarlo su geometrie reali.
+- Avanzamento in `docs/fasi/`: un file per fase, più l'indice `README.md` con la sezione "Cosa fare adesso". Va aggiornato a ogni passo completato: spuntare le caselle, aggiornare lo stato e i prossimi passi, indicare chi fa cosa (🧑 l'utente, 🤖 Claude).
 
 ## Fasi
 0 setup · 1 FEM di base (Lamé) · 2 CFD di base (Poiseuille, Womersley) · 3 segmentazione AI (AVT, Dice/HD95) · 4 geometria → mesh · 5 CFD su paziente reale · 6 FEM della parete · 7 surrogato AI.
