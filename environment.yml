@@ -32,6 +32,7 @@ dependencies:
   - jupyterlab
   - ipykernel
   - pytest
+  - ruff
   # il progetto stesso, installato in modo modificabile: permette "import aorta" negli script
   - pip
   - pip:

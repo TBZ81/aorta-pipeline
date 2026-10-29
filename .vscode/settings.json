@@ -1,4 +1,9 @@
 {
   "python.defaultInterpreterPath": "/Users/Federico/miniforge3/envs/cardio/bin/python",
-  "files.exclude": { "**/__pycache__": true, "**/.pytest_cache": true }
+  "python-envs.defaultEnvManager": "ms-python.python:conda",
+  "python-envs.defaultPackageManager": "ms-python.python:conda",
+  "python-envs.pythonProjects": [
+    { "path": ".", "envManager": "ms-python.python:conda", "packageManager": "ms-python.python:conda" }
+  ],
+  "files.exclude": { "**/__pycache__": true, "**/.pytest_cache": true, "**/.ruff_cache": true }
 }

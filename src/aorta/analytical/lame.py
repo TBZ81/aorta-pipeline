@@ -20,8 +20,6 @@ def sigma_r(r, a, b, p_i):
     """Tensione radiale sigma_r(r) [Pa]."""
     return p_i * a**2 / (b**2 - a**2) * (1 - b**2 / r**2)
 
- 
-
 
 def sigma_theta(r, a, b, p_i):
     """Tensione circonferenziale sigma_theta(r) [Pa]."""

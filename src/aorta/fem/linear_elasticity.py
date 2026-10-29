@@ -9,7 +9,7 @@ quindi -p_i n spinge la parete verso l'esterno).
 import dolfinx
 import numpy as np
 import ufl
-from dolfinx import fem, mesh
+from dolfinx import fem
 from dolfinx.fem.petsc import LinearProblem
 from mpi4py import MPI
 

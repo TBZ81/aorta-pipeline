@@ -12,3 +12,10 @@ requires-python = ">=3.11"
 # permette ai test di fare `import aorta` senza installare il pacchetto
 pythonpath = ["src"]
 testpaths = ["tests"]
+
+[tool.ruff]
+# controllo automatico del codice: `ruff check src tests scripts`
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]  # errori, nomi inutilizzati, spazi, ordine degli import
